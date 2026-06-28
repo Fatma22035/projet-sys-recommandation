@@ -129,14 +129,17 @@ recherche la ligne du restaurant dans la matrice de similarité (embeddings),
 trie les scores par ordre décroissant, exclut le restaurant lui-même puis
 retourne les N restaurants restants les mieux notés.
 
-*Exemple réel — restaurant testé : un café (`مقهى غيث`) :*
+| Restaurant testé : مقهى غيث Gaith coffee | Méthode utilisée : content based |
+|-------------------------------------------|-----------------------------------|
 
-| Restaurant recommandé | Score de similarité (embeddings) |
-|---|---|
-| Taf-Taf | 0.71 |
-| Café maroc | 0.68 |
-| N'icecream Nouakchott | 0.65 |
-| MONDIAL PIZZA 2 NKC | 0.63 |
+| Title                     | Similarity score |
+|---------------------------|------------------|
+| Iloca 10002               | 0.822618         |
+| Restaurant Amandine dit Malien | 0.738293    |
+| Restaurant El Qouds       | 0.733160         |
+| TEA TIME RESTAURANT       | 0.722803         |
+| Cafeteria Taybe           | 0.715831         |
+
 | مخبزة وحلويات الأولى (boulangerie) | 0.61 |
 
 Les recommandations restent cohérentes avec le thème café/sucré/snack du
@@ -147,16 +150,17 @@ calcule la distance réelle (formule de Haversine) vers tous les autres
 restaurants, filtre ceux à plus de 10 km, puis trie par proximité puis par
 note.
 
-*Exemple réel — restaurant testé : "Restaurant notre coin" (sans avis
-texte) :*
+| Restaurant testé (sans texte) : Restaurant notre coin | Méthode utilisée : fallback_geo |
+|-------------------------------------------------------|---------------------------------|
 
-| Restaurant recommandé | Distance | Note |
-|---|---|---|
-| منتجع اتريند (مطعم اتريند) | 0.47 km | 3.8 |
-| مشروع كرمنا | 0.47 km | 4.4 |
-| Nkc meals | 0.48 km | 3.1 |
-| Fun haouse | 0.50 km | — |
-| مطعم التقليدي 2 | 0.50 km | — |
+| Restaurant recommandé       | Distance | Note |
+|-----------------------------|----------|------|
+| منتجع اتريند (مطعم اتريند)  | 0.47 km  | 3.8  |
+| مشروع كرمنا                 | 0.47 km  | 4.4  |
+| Nkc meals                   | 0.48 km  | 3.1  |
+| Fun haousse                 | 0.50 km  | Pas de note |
+| مطعم التقليدي 2             | 0.50 km  | Pas de note |
+— |
 
 Toutes les recommandations sont à moins de 500 m, cohérent avec l'objectif du
 fallback.
