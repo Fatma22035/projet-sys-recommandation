@@ -2,7 +2,7 @@
 
 Projet réalisé dans le cadre du cours *Systèmes de recommandation*.
 
-**Auteur :** [Ton nom]
+**Auteur :** Vatma El wavi
 **Sujet :** Recommender de restaurants similaires
 
 ---
